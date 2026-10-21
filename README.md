@@ -1,38 +1,63 @@
-Data behind the figures in Phukon et al., arxiv:2512.10803, and the scripts to generate them. 
+# GW200105 Targeted Eccentric Search: Data and Figure Scripts
 
-Figure 1:
+This repository contains plotting scripts and description of data products associated with the targeted eccentric search for GW200105. The scripts were used to produce figures for the paper below.
 
-Data files: Eccentric_template_bank_GW200105_search.hdf, Quasicircular_template_bank_GW200105_search.hdf 
-Description of files: The file Eccentric_template_bank_GW200105_search.hdf contains the parameters of the template bank used in the eccentric search.  The waveforms of templates are modeled by the TaylorF2Ecc approximant. The datasets with keys mass1, mass2, spin1z, spin2z, and eccentricity provide parameter values for the masses, spins of the components of non-precessing templates, and eccentricity, respectively.  Existing datasets in the quasicircular template bank in Quasicircular_template_bank_GW200105_search.hdf hold the same meaning as in the eccentric bank.
-Plotting script, fig1.py:  Figure 1 is made using the eccentric template bank, best-fit eccentric template parameters with GW200105 provided in Table II of Phukon et al., arxiv:2512.10803, and the median values of posteriors for GW200105 from Morras et al., arxiv:2503.15393.
-Figures 2 and 3: 
+**Paper:** K. S. Phukon, S. Schmidt, J. Morras, and A. Pratten, [“Detection of GW200105 with a targeted eccentric search,” *Physical Review D* 113 (2026)](https://doi.org/10.1103/cmtb-5q4b).
 
-Data files: 
-H1V1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_ECCENTRIC_SEARCH.hdf, H1L1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_ECCENTRIC_SEARCH.hdf, L1V1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_ECCENTRIC_SEARCH.hdf, H1L1V1-EXCLUDE_ZEROLAG_FULL_DATA_3DET_ECCENTRIC_SEARCH.hdf, H1V1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_QUASICIRCULAR_SEARCH.hdf, H1L1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_QUASICIRCULAR_SEARCH.hdf, L1V1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_QUASICIRCULAR_SEARCH.hdf, H1L1V1-EXCLUDE_ZEROLAG_FULL_DATA_3DET_QUASICIRCULAR_SEARCH.hdf, H1_triggers_with_background_eccentric_search.hdf (not provided here), L1_triggers_with_background_eccentric_search.hdf (not provided here), V1_triggers_with_background_eccentric_search.hdf (not provided here), H1_triggers_with_background_quasicircular_search.hdf (not provided here), L1_triggers_with_background_quasicircular_search.hdf (not provided here),  V1_triggers_with_background_quasicircular_search.hdf (not provided here),  H1L1V1_INJ_FIND_ECCENTRIC_INJECTIONS_ECCENTRIC_SEARCH.hdf, H1L1V1_INJ_FIND_ECCENTRIC_INJECTIONS_QUASICIRCULAR_SEARCH.hdf, H1L1V1_INJ_FIND_QUASICIRCULAR_INJECTIONS_ECCENTRIC_SEARCH.hdf, H1L1V1_INJ_FIND_QUASICIRCULAR_INJECTIONS_QUASICIRCULAR_SEARCH.hdf
+**Complete search analysis data:** [Zenodo record 20119453](https://zenodo.org/records/20119453).
 
-Description of files:  In files DETECTOR_COMBINATION-EXCLUDE_ZEROLAG_FULL_DATA_#DET_SEARCH-TYPE.hdf, clustered triggers used in background constructions for various detector combinations for searches are provided. Here DETECTOR_COMBINATION represents H1, L1, V1, H1L1, H1V1, L1V1, H1L1V1 with the corresponding number of detectors #DET in the file name string for respective searches #DET_SEARCH-TYPE.  The files that contain summary statistics of eccentric and quasi-circular injection recovery in both searches are given by H1L1V1_INJ_FIND_INJECTIONS-TYPE_SEARCH-TYPE.hdf, where INJECTIONS-TYPE specifies either ECCENTRIC_INJECTIONS and QUASICIRCULAR_INJECTIONS, and SEARCH-TYPE is for ECCENTRIC_SEARCH and QUASICIRCULAR_SEARCH.  The single detector trigger files with noise triggers, i.e.  DETECTOR_triggers_with_background_SEARCH-TYPE.hdf are not provided in this repository as those exceed the size quota. In the filename string, DETECTOR and SEARCH-TYPE are dummies for H1, L1, V1, and eccentric_search, quasicircular search, respectively. 
-Plotting scripts, fig2.py and fig3.py: The script fig2.py mainly compares chi-square and SNR values of noise triggers and eccentric injection triggers in both eccentric and quasi-circular searches. While fig3.py compares chi-square and SNR values of noise triggers and quasicircular injection triggers in both searches. 
- Figure 4: 
+## Repository contents
 
-Data files: H1L1V1_INJ_FIND_ECCENTRIC_INJECTIONS_ECCENTRIC_SEARCH.hdf,  H1L1V1_INJ_FIND_ECCENTRIC_INJECTIONS_QUASICIRCULAR_SEARCH.hdf 
-Description of files: Each HDF file contains the parameters of the eccentric injections used in both searches, statistics associated with recovered injections, and information on missed injections.  From each file, the relevant data group about found injections is found_after_vetoes, and about missed injections is missed/after_vetoes. All injection parameters used in this study are stored in the group injections .
-Plotting script, fig4.py : The sensitive volumes are computed using the pylal-based method with 200 bins at different IFAR thresholds. 
-Figure 5: 
+This GitHub repository contains the figure-generation scripts and supporting analysis code. **Data products are not stored in this repository.** Download the HDF5 files from the [Zenodo data release](https://zenodo.org/records/20119453).
 
-Data files:  
-H1L1V1-COMBINE_STATMAP_ECCENTRIC_SEARCH.hdf,  H1L1V1-COMBINE_STATMAP_QUASICIRCULAR_SEARCH.hdf, L1V1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_ECCENTRIC_SEARCH.hdf, H1V1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_ECCENTRIC_SEARCH.hdf, H1L1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_ECCENTRIC_SEARCH.hdf, H1L1V1-EXCLUDE_ZEROLAG_FULL_DATA_3DET_ECCENTRIC_SEARCH.hdf, V1-EXCLUDE_ZEROLAG_FULL_DATA_1DET_ECCENTRIC_SEARCH.hdf, L1-EXCLUDE_ZEROLAG_FULL_DATA_1DET_ECCENTRIC_SEARCH.hdf, H1-EXCLUDE_ZEROLAG_FULL_DATA_1DET_ECCENTRIC_SEARCH.hdf, L1V1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_QUASICIRCULAR_SEARCH.hdf, H1V1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_QUASICIRCULAR_SEARCH.hdf, H1L1-EXCLUDE_ZEROLAG_FULL_DATA_2DET_QUASICIRCULAR_SEARCH.hdf, H1L1V1-EXCLUDE_ZEROLAG_FULL_DATA_3DET_QUASICIRCULAR_SEARCH.hdf, V1-EXCLUDE_ZEROLAG_FULL_DATA_1DET_QUASICIRCULAR_SEARCH.hdf, L1-EXCLUDE_ZEROLAG_FULL_DATA_1DET_QUASICIRCULAR_SEARCH.hdf, H1-EXCLUDE_ZEROLAG_FULL_DATA_1DET_QUASICIRCULAR_SEARCH.hdf
+The archive includes the eccentric and quasi-circular template banks, injection/recovery summaries, coincident search triggers and background data, and statistical maps. The eccentric template bank uses the TaylorF2Ecc waveform approximant. Its datasets `mass1`, `mass2`, `spin1z`, `spin2z`, and `eccentricity` give the component masses, aligned spin components, and eccentricity. The quasi-circular bank's mass and spin datasets have the same meaning.
 
-Description of files:  Clusters foreground triggers with related statistics from quasi-circular and eccentric searches can be found in files H1L1V1-COMBINE_STATMAP_QUASICIRCULAR_SEARCH.hdf and H1L1V1-COMBINE_STATMAP_ECCENTRIC_SEARCH.hdf, respectively. Clustered triggers in background constructions for various detector combinations for searches are provided in files DETECTOR_COMBINATION-EXCLUDE_ZEROLAG_FULL_DATA_#DET_SEARCH-TYPE.hdf, where DETECTOR_COMBINATION represents H1, L1, V1, H1L1, H1V1, L1V1, H1L1V1 with the corresponding number of detectors #DET in the file name string for respective searches #DET_SEARCH-TYPE. 
-Plotting script, fig5.py:  Relevant dataset for foreground triggers from each search is foreground/ifar_exc that stores statistical information of triggers in the exclusive background of the respective search.   The statmap files for background triggers are primarily used in the figure's right panel. The background statmap files are used to build the search significance/FAR.  The script reads background_exc/stat to obtain ranking statistics for background events.  For single-detector events, the  trigger_fit method of PyCBC using an exponentially decaying function is used to evaluate statistical significance, event rate whereas for events in multiple detectors' observing time, the n_louder method is used to get event rate/significance at a given ranking statistics. 
-Figure 6:
+The repository includes the figure scripts (`fig1.py`–`fig7.py`), supporting analysis scripts, and `physrev.mplstyle`.
 
-Data files:  H1L1V1_INJ_FIND_ECCENTRIC_INJECTIONS_ECCENTRIC_SEARCH.hdf, Eccentric_template_bank_GW200105_search.hdf, H1-ECCENTRIC_INJECTION_TRIGGERS_ECCENTRIC_SEARCH.hdf, L1-ECCENTRIC_INJECTION_TRIGGERS_ECCENTRIC_SEARCH.hdf, V1-ECCENTRIC_INJECTION_TRIGGERS_ECCENTRIC_SEARCH.hdf
-Description of files:  H1L1V1_INJ_FIND_ECCENTRIC_INJECTIONS_ECCENTRIC_SEARCH.hdf contains details of recovered (parameters, ranking statistics) and missed eccentric injections in the eccentric search with the eccentric bank stored in Eccentric_template_bank_GW200105_search.hdf. The single-detector triggers due to injections are stored in DETECTOR-ECCENTRIC_INJECTION_TRIGGERS_ECCENTRIC_SEARCH.hdf, where DETECTOR represents H1, L1, or V1.  PyCBC's SingleDetTriggers module is used to establish a mapping between triggers and corresponding template parameters. 
-Plotting script, fig6.py: This script results in a corner plot of the offsets of the injections and corresponding template parameters. 
-Figure 7:
+## Figure scripts
 
-Data files: 
-L1_triggers_eccentric_search.hdf, Eccentric_template_bank_GW200105_search.hdf, H1L1V1-COMBINE_STATMAP_ECCENTRIC_SEARCH.hdf
+| Script | Figure content |
+| --- | --- |
+| `fig1.py` | Eccentric template-bank parameters and GW200105 parameter estimates |
+| `fig2.py` | Signal-to-noise ratio (SNR) and reduced chi-squared $(\chi_r^2)$ comparisons for eccentric injections |
+| `fig3.py` | SNR and $\chi_r^2$ comparisons for quasi-circular injections |
+| `fig4.py` | Sensitive volume-time $\langle VT \rangle$ ratio and injection recovery fractions versus IFAR threshold |
+| `fig5.py` | Foreground and background ranking statistics and significance |
+| `fig6.py` | Corner plots for offsets between parameters of eccentric injections and those of recovered templates |
+| `fig7.py` | L1 trigger properties around GW200105 |
 
-Description of files: The file L1_triggers_eccentric_search.hdf contains unclustered L1 detector triggers with noise triggers vetoed out. All clustered triggers found in all detector combinations are provided in H1L1V1-COMBINE_STATMAP_ECCENTRIC_SEARCH.hdf, while Eccentric_template_bank_GW200105_search.hdf is the template bank used in the search.
-Plotting script, fig7.py: The plotting extracts the index of the trigger reported against GW200105 from the file with clustered trigger information. Within a time window of 1 second around that trigger, all triggers are read from L1_triggers_eccentric_search.hdf. By mapping those triggers to the search template bank, the figure relating ranking statistics and template parameters for the corresponding triggers is produced.
+## Data files
+
+The scripts expect the data products to be downloaded from Zenodo and available under the filenames specified in each script. Place the required files in the working directory before running a script. Main input files include:
+
+- Template banks: `Eccentric_template_bank_GW200105_search.hdf` and `Quasicircular_template_bank_GW200105_search.hdf`.
+- Injection/recovery summaries: `H1L1V1_INJ_FIND_<INJECTION_TYPE>_INJECTIONS_<SEARCH_TYPE>_SEARCH.hdf`, where each type is `ECCENTRIC` or `QUASICIRCULAR`.
+- Coincident search data: `<DETECTOR_COMBINATION>-EXCLUDE_ZEROLAG_FULL_DATA_<N>DET_<SEARCH_TYPE>_SEARCH.hdf`.
+- Combined statistical maps: `H1L1V1-COMBINE_STATMAP_<SEARCH_TYPE>_SEARCH.hdf`.
+- Single-detector trigger files used by some figures: detector-specific injection-trigger or background-trigger HDF5 files, and `L1_triggers_eccentric_search.hdf` for `fig7.py`.
+
+Here, detector combinations include H1, L1, V1, H1L1, H1V1, L1V1, and H1L1V1. Not every file is required for every figure; see the input filenames in the corresponding script. The Zenodo record is the source for these data products.
+
+## Reproducing figures
+
+Use a Python environment with PyCBC, NumPy, Matplotlib, and the additional packages imported by the selected script (including packages such as `h5py`, `scipy`, `corner`, `mpl-scatter-density`, and `cycler`, as applicable). Some plots also require a LaTeX installation with the AMS math packages.
+
+From the repository directory, run a figure script with:
+
+```bash
+python fig1.py
+```
+
+The scripts use fixed input filenames and write figure outputs to the current directory. Obtain the required HDF5 inputs from the [Zenodo record](https://zenodo.org/records/20119453) and place them in the working directory before running the relevant scripts. The scripts do not provide an automated data-download workflow.
+
+## Citation
+
+If you use data from this research, please cite the paper and the archived data release:
+
+> K. S. Phukon, S. Schmidt, J. Morras, and A. Pratten, “Detection of GW200105 with a targeted eccentric search,” *Physical Review D* 113 (2026). [https://doi.org/10.1103/cmtb-5q4b](https://doi.org/10.1103/cmtb-5q4b)
+
+> Khun Sang Phukon et al., GW200105 targeted eccentric-search data release, Zenodo (2026). [https://zenodo.org/records/20119453](https://zenodo.org/records/20119453)
+
+## License
+
+The code and repository contents are distributed under the [MIT License](LICENSE).
